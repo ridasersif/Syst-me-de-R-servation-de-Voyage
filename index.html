@@ -10,31 +10,45 @@
     <div class='progress'>
         <div class='progress_inner'>
           <div class='progress_inner__step'>
-            <label for='step-1'>Commencer la reservation</label>
+            <label id="s1" for='step-1'>Commencer la reservation</label>
           </div>
           <div class='progress_inner__step'>
-            <label for='step-2'>La gare et la date de départ</label>
+            <label id="s2" for='step-2'>La gare et la date de départ</label>
           </div>
           <div class='progress_inner__step'>
-            <label for='step-3'>Les resultat de recherche</label>
+            <label id="s3" for='step-3'>Les resultat de recherche</label>
           </div>
           <div class='progress_inner__step'>
-            <label for='step-4'>Voyageurs</label>
+            <label id="s4" for='step-4'>Voyageurs</label>
           </div>
           <div class='progress_inner__step'>
-            <label for='step-5'>Les tickets</label>
+            <label id="s5" for='step-5'>Les tickets</label>
           </div>
+
           <input checked='checked' id='step-1' name='step' type='radio'>
           <input id='step-2' name='step' type='radio'>
           <input id='step-3' name='step' type='radio'>
           <input id='step-4' name='step' type='radio'>
           <input id='step-5' name='step' type='radio'>
+
           <div class='progress_inner__bar'></div>
           <div class='progress_inner__bar--set'></div>
           <div class='progress_inner__tabs'>
             <div class='tab tab-0'>
               <h1>Commencer la reservation</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tortor ipsum, eleifend vitae massa non, dignissim finibus eros. Maecenas non eros tristique nisl maximus sollicitudin.</p>
+              <div class="input-commencer">
+                <div class="nom">
+                  <input placeholder="Nom et prenom" id="nom" type="text" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;"> 
+                </div>
+                <div class="email">
+                  <input placeholder="Email" id="email" type="text" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;"> 
+                </div>
+                
+              </div>
+              <div class="next">
+                <button onclick="back()">Back</button>
+                <button onclick="next()">Next</button>
+              </div>
             </div>
             <div class='tab tab-1'>
               <h1>La gare et la date</h1>
@@ -48,7 +62,11 @@
                 <option value="">Marrakech</option>
                 <option value="">Marrakech</option>
               </select>
-              <input type="date" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;"/>
+              <input id="date" type="date" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;"/>
+              <div class="next">
+                <button onclick="back()">Back</button>
+                <button onclick="next()">Next</button>
+              </div>
             </div>
             <div class='tab tab-2'>
               <h1>Les resultat de recherche</h1>
@@ -78,51 +96,66 @@
                     <span>8:45</span>
                 </div>
               </div>
+              <div class="next">
+                <button onclick="back()">Back</button>
+                <button onclick="next()">Next</button>
+              </div>
+         
             </div>
             <div class='tab tab-3'>
               <h1>Voyageurs</h1>
                 <div style="display: flex; justify-content: space-between; padding: 10px;">
                     <div>
-                        <h4>Adult (Prix 500DH)</h4>
+                        <h4 >Adult (Prix 500DH)</h4>
+                        <div class="PrixDeticket" id="PrixAdultBlus">
+                          Le nombre de places: <br>
+                          Prix= DH
+                        </div>
                         <div style="display: flex; align-items: center; gap: 10px;">
-                            <button style="border-radius: 50%; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">+</button>
-                            <span>1</span>
-                            <button style="border-radius: 50%; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
+                            <button class="btnprix" id="btnAdultBlus" style="border-radius: 50%; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">+</button>
+                            <span  id="NPA">0</span>
+                            <button class="btnprix" id="btnAdultMoins" style="border-radius: 50%; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
                         </div>
                     </div>
                     <div style="width: 5px; background-color: #2e6c8e;"></div>
                     <div>
                         <h4>Enfant (Prix 100DH)</h4>
+                        <div class="PrixDeticket" id="PrixEnfantBlus">
+                          Le nombre de places: <br>
+                          Prix= DH
+                        </div>
                         <div style="display: flex; align-items: center; gap: 10px;">
-                            <button style="border-radius: 50%; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">+</button>
-                            <span>1</span>
-                            <button style="border-radius: 50%; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
+                            <button class="btnprix" id="btnEnfantBlus" style="border-radius: 50%; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e; ">+</button>
+                            <span id="NPE">0</span>
+                            <button class="btnprix" id="btnEnfantMoins" style="border-radius: 50%; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
                         </div>
                     </div>
                 </div>
                 <h4>Choisissez votre place</h4>
                 <div style="display: grid; justify-content: center; grid-template-columns: auto auto auto auto; gap: 20px;">
-                    <button style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
-                    <button style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
-                    <button style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
-                    <button style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
-                    <button style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
-                    <button style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
-                    <button style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
-                    <button style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;">-</button>
+                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
+                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
+                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
+                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
+                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
+                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
+                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
+                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
                 </div>
-                <h4>Prix Total : 0000DH</h4>
+               
+                <h4 id="PrixTotal">Prix Total : 0000DH</h4>
+                <div class="next">
+                  <button onclick="back()">Back</button>
+                  <button onclick="next()">Next</button>
+                </div>
             </div>
             <div class='tab tab-4'>
               <h1>Les tickets</h1>
               
               <div style="height: 500px;display: flex; justify-content: center; align-items: center;">
               <div class="card content">
-                <div class="user-info">
-                  <p>Nom et prénom : <span>AZIZ</span></p>
-                  <p>E-mail : <span>test.aziz@gmail.com</span></p>
-                  <p>Date de réservation : <span>12/15/48</span></p>
-                  <p>Prix : <span>00000DH</span></p>
+                <div id="ticket" class="user-info">
+                 
                 </div>
                 <div class="qr-code">
                   <p>Code QR :</p>
@@ -130,11 +163,18 @@
                 </div>
               </div>
               </div>
+              <div class="next">
+                <button onclick="back()">Back</button>
+                <button onclick="print()">Print</button>
+              </div>
             
             </div>
+            
           </div>
         </div>
       </div>
+
+      
       <script src="main.js"></script>
 </body>
 </html>

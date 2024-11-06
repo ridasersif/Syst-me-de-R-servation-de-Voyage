@@ -9,6 +9,41 @@ body .progress_inner #step-1:checked + input + input + input + input + div + div
   left: 0px;
   opacity: 0;
 }
+/****************************************************/
+.next{
+ display: flex;
+  padding: 20px;
+  justify-content: center;
+  gap: 100px;
+}
+.next button{
+  background: #023855;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  width: 70px;
+ }
+ .next button:hover{
+  background: #2d89e0;
+ }
+ input[type="checkbox"].Choisissez {
+  width: 49px;          
+  height: 49px;         
+  margin: 0;           
+  padding: 0;          
+  display: block;       
+  margin: auto;         
+}
+.btnprix{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+
+/***************************************************/
 
 body .progress_inner #step-2:checked + input + input + input + div + div + div + div > .box_lid, body .progress_inner #step-5:checked + div + div + div + div > .box_lid, body .progress_inner #step-4:checked + input + div + div + div + div > .box_lid {
   top: -20px;
