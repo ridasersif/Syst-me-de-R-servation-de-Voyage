@@ -49,6 +49,10 @@
                 <button onclick="back()">Back</button>
                 <button onclick="next()">Next</button>
               </div>
+              <div class="next nextNone">
+                <button>Back</button>
+                <button >Next</button>
+              </div>
             </div>
             <div class='tab tab-1'>
               <h1>La gare et la date</h1>
@@ -132,7 +136,7 @@
                     </div>
                 </div>
                 <h4>Choisissez votre place</h4>
-                <div style="display: grid; justify-content: center; grid-template-columns: auto auto auto auto; gap: 20px;">
+                <div id="buttonPrix" style="display: grid; justify-content: center; grid-template-columns: auto auto auto auto; gap: 20px;">
                     <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
                     <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
                     <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
@@ -151,21 +155,16 @@
             </div>
             <div class='tab tab-4'>
               <h1>Les tickets</h1>
+             
+                <div id="ticket"  style="height: 500px;display: flex; justify-content: center; align-items: center;">
+                   
               
-              <div style="height: 500px;display: flex; justify-content: center; align-items: center;">
-              <div class="card content">
-                <div id="ticket" class="user-info">
-                 
-                </div>
-                <div class="qr-code">
-                  <p>Code QR :</p>
-                  <img src="qr-code.svg" alt="code QR"/>
-                </div>
               </div>
-              </div>
+              
+             
               <div class="next">
                 <button onclick="back()">Back</button>
-                <button onclick="print()">Print</button>
+                <button onclick="print()">print</button>
               </div>
             
             </div>

@@ -27,6 +27,7 @@ function next()
     tab[3].style.zIndex='0'
     tab[4].style.zIndex='0' 
     currentPosition++;
+  
     let currentStep = document.getElementById('step-'+(currentPosition+1))
     currentStep.click();
     tab[currentPosition].style.zIndex='100'
@@ -55,7 +56,6 @@ let y=0;
 let i=0;
 let j=0;
 
-
 let total=Total(x,y)
 
 step4.onclick=function(){
@@ -81,6 +81,7 @@ btnAdultBlus.onclick=function(){
    
 }
 btnAdultMoins.onclick=function(){
+  if(i>0){
     x=x-500;
     i--;
     document.getElementById('PrixAdultBlus').innerHTML=`
@@ -90,12 +91,14 @@ btnAdultMoins.onclick=function(){
 document.getElementById('NPA').innerHTML=`
            ${i}
 `
+  }
  let total=Total(x,y)
     PrixTotal.innerHTML=`Prix total : ${total} DH`
    
 }
 
 btnEnfantBlus.onclick=function(){
+  
     y=y+100;
     j++;
     document.getElementById('PrixEnfantBlus').innerHTML=`
@@ -105,12 +108,14 @@ btnEnfantBlus.onclick=function(){
 document.getElementById('NPE').innerHTML=`
            ${j}
 `
+
  let total=Total(x,y)
     PrixTotal.innerHTML=`Prix total : ${total} DH`
     
    
 }
 btnEnfantMoins.onclick=function(){
+  if(j>0){
     y=y-100;
     j--;
     document.getElementById('PrixEnfantBlus').innerHTML=`
@@ -120,21 +125,37 @@ btnEnfantMoins.onclick=function(){
 document.getElementById('NPE').innerHTML=`
            ${j}
 `
+  }
  let total=Total(x,y)
     PrixTotal.innerHTML=`Prix total : ${total} DH`
 }
 }
 step5.onclick=function(){
     let ticket=document.getElementById('ticket')
-    console.log(ticket)
-    let total=Total(x,y)
-   ticket.innerHTML=`
-   
-                  <p>Nom et prénom : <span>${nom.value}</span></p>
+    console.log(i,j)
+    let total=Total(x,j)
+    for(let m=0;m<(i+j);m++){
+        ticket.innerHTML+=`
+        <div class="card content">
+        <div  class="user-info">
+        <p>Nom et prénom : <span>${nom.value}</span></p>
                   <p>E-mail : <span>${email.value}</span></p>
                   <p>Date de réservation : <span>${date.value}</span></p>
                   <p>Prix : <span> ${total} DH</span></p>
-                  `  
+        
+        </div>
+        <div class="qr-code">
+          <p>Code QR :</p>
+          <img src="qr-code.svg" alt="code QR"/>
+        </div>
+      </div>`
+        
+    }
+   
+   
+                  
+
+                
 }
 //******************************************************** */
 
