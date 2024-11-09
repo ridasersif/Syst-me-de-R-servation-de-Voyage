@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
     <div class='progress'>
         <div class='progress_inner'>
           <div class='progress_inner__step'>
@@ -38,62 +39,69 @@
               <h1>Commencer la reservation</h1>
               <div class="input-commencer">
                 <div class="nom">
-                  <input placeholder="Nom et prenom" id="nom" type="text" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;"> 
+                  <input  placeholder="Nom et prenom" id="nom" type="text" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;"> 
                 </div>
                 <div class="email">
                   <input placeholder="Email" id="email" type="text" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;"> 
                 </div>
                 
               </div>
-              <div class="next">
-                <button onclick="back()">Back</button>
-                <button onclick="next()">Next</button>
+              <div class="next">   
+                <button id="nextStep1" onclick="next()" disabled >Next</button>
               </div>
-              <div class="next nextNone">
-                <button>Back</button>
-                <button >Next</button>
-              </div>
+              
+             
             </div>
             <div class='tab tab-1'>
               <h1>La gare et la date</h1>
-              <select style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+              <select id="depart" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
                 <option value="">La gare de départ</option>
-                <option value="">Marrakech</option>
-                <option value="">Marrakech</option>
+                <option value="Marrakech">Marrakeck</option>
+                <option value="Agadir">Agadir</option>
+                <option value="Rabat">Rabat</option>
+                <option value="Safi">Safi</option>
+                <option value="Kalaa des srghna ">Kalaa des eraghna </option>
+                <option value="Nador">Nador</option>
+                <option value="Dakhla">Dakhla</option> 
               </select>
-              <select style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+              <select id="arriver" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
                 <option value="">La gare d'arriver</option>
-                <option value="">Marrakech</option>
-                <option value="">Marrakech</option>
+                <option value="Marrakech">Marrakeck</option>
+                <option value="Agadir">Agadir</option>
+                <option value="Rabat">Rabat</option>
+                <option value="Safi">Safi</option>
+                <option value="Kalaa des srghna ">Kalaa des eraghna </option>
+                <option value="Nador">Nador</option>
+                <option value="Dakhla">Dakhla</option> 
               </select>
               <input id="date" type="date" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;"/>
               <div class="next">
-                <button onclick="back()">Back</button>
-                <button onclick="next()">Next</button>
+                <button id="Back" onclick="back()">Back</button>
+                <button  id="nextStep2" onclick="next()" disabled>Next</button>
               </div>
             </div>
             <div class='tab tab-2'>
               <h1>Les resultat de recherche</h1>
               <div style="display: flex; flex-direction: column;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
                     <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
                     <span>6:30</span>
                     <img width="50px" src="./airplane.png" alt="">
                     <span>8:45</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                <div class="ResultatDeDecherche"  style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
                     <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
                     <span>6:30</span>
                     <img width="50px" src="./airplane.png" alt="">
                     <span>8:45</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                <div class="ResultatDeDecherche"  style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
                     <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
                     <span>6:30</span>
                     <img width="50px" src="./airplane.png" alt="">
                     <span>8:45</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                <div class="ResultatDeDecherche"  style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
                     <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
                     <span>6:30</span>
                     <img width="50px" src="./airplane.png" alt="">
@@ -101,8 +109,8 @@
                 </div>
               </div>
               <div class="next">
-                <button onclick="back()">Back</button>
-                <button onclick="next()">Next</button>
+                <button onclick="back()" >Back</button>
+                <button id="nextStep3" onclick="next()" disabled>Next</button>
               </div>
          
             </div>
@@ -136,42 +144,59 @@
                     </div>
                 </div>
                 <h4>Choisissez votre place</h4>
-                <div id="buttonPrix" style="display: grid; justify-content: center; grid-template-columns: auto auto auto auto; gap: 20px;">
-                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
-                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
-                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
-                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
-                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
-                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
-                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
-                    <button class="btnprix" style="border-radius: 5px; width: 50px; height: 50px; font-size: 15pt; color: #2e6c8e; background-color: #a6cde2; border: 3px solid #2e6c8e;"><input class="Choisissez" type="checkbox"></button>
+                <div id="buttonPrix" style="display: grid; justify-content: center; grid-template-columns: auto auto auto auto; gap: 20px;">  
+                    <input onclick="inputCheckbox(event)" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                    <input onclick="inputCheckbox()" class="Choisissez" type="checkbox">
+                   
+                </div>
+                <div id="cover">
+                  <div>
+               <!--   <p>Les sieges specifes ont ete depasses </p>-->  
+                  </div>
                 </div>
                
                 <h4 id="PrixTotal">Prix Total : 0000DH</h4>
                 <div class="next">
                   <button onclick="back()">Back</button>
-                  <button onclick="next()">Next</button>
+                  <button id="nextStep4" onclick="next()" disabled>Next</button>
                 </div>
             </div>
             <div class='tab tab-4'>
               <h1>Les tickets</h1>
              
-                <div id="ticket"  style="height: 500px;display: flex; justify-content: center; align-items: center;">
+                <div id="ticket"  style="height: 500px;display: flex; gap: 10px; justify-content: center; align-items: center;">
                    
               
               </div>
               
-             
+        
               <div class="next">
                 <button onclick="back()">Back</button>
                 <button onclick="print()">print</button>
               </div>
             
             </div>
+          
             
           </div>
+         
         </div>
       </div>
+    
 
       
       <script src="main.js"></script>
