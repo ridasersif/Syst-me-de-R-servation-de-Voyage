@@ -406,7 +406,8 @@ body .progress_inner input[type=radio] {
 }
 
 .content {
-    width: 40%;
+    width: 45%;
+    height: 580px;
     background-image: url(card-backgroud.svg);
     background-size: cover;
     background-position: center;

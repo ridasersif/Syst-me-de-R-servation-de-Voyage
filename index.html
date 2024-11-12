@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
   
@@ -40,9 +41,11 @@
               <div class="input-commencer">
                 <div class="nom">
                   <input  placeholder="Nom et prenom" id="nom" type="text" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;"> 
+                  <span id="nomError" style="color: red;display: none;">Le nom doit comporter entre 6 et 20 caractères.</span>
                 </div>
                 <div class="email">
                   <input placeholder="Email" id="email" type="text" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;"> 
+                  <span id="emailError" style="color: red;display: none;">Veuillez entrer un email valide</span>
                 </div>
                 
               </div>
@@ -50,12 +53,11 @@
                 <button id="nextStep1" onclick="next()" disabled >Next</button>
               </div>
               
-             
             </div>
             <div class='tab tab-1'>
               <h1>La gare et la date</h1>
               <select id="depart" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
-                <option value="">La gare de départ</option>
+                <option value="..">La gare de départ</option>
                 <option value="Marrakech">Marrakeck</option>
                 <option value="Agadir">Agadir</option>
                 <option value="Rabat">Rabat</option>
@@ -65,7 +67,7 @@
                 <option value="Dakhla">Dakhla</option> 
               </select>
               <select id="arriver" style="margin-top: 10px; padding: 15px 20px; width: 400px; text-align: center; border-radius: 8px; border: 2px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
-                <option value="">La gare d'arriver</option>
+                <option value="..">La gare d'arriver</option>
                 <option value="Marrakech">Marrakeck</option>
                 <option value="Agadir">Agadir</option>
                 <option value="Rabat">Rabat</option>
@@ -85,28 +87,79 @@
               <div style="display: flex; flex-direction: column;">
                 <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
                     <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
-                    <span>6:30</span>
+                    <span id="deparTime">6:30</span>
                     <img width="50px" src="./airplane.png" alt="">
-                    <span>8:45</span>
+                    <span id="arrivTime">8:45</span>
                 </div>
-                <div class="ResultatDeDecherche"  style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
                     <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
-                    <span>6:30</span>
+                    <span id="deparTime">7:30</span>
                     <img width="50px" src="./airplane.png" alt="">
-                    <span>8:45</span>
+                    <span id="arrivTime">9:45</span>
                 </div>
-                <div class="ResultatDeDecherche"  style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
                     <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
-                    <span>6:30</span>
+                    <span id="deparTime">20:30</span>
                     <img width="50px" src="./airplane.png" alt="">
-                    <span>8:45</span>
+                    <span id="arrivTime">23:45</span>
                 </div>
-                <div class="ResultatDeDecherche"  style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
                     <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
-                    <span>6:30</span>
+                    <span id="deparTime">12:30</span>
                     <img width="50px" src="./airplane.png" alt="">
-                    <span>8:45</span>
+                    <span id="arrivTime">19:45</span>
                 </div>
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                    <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
+                    <span id="deparTime">9:30</span>
+                    <img width="50px" src="./airplane.png" alt="">
+                    <span id="arrivTime">10:45</span>
+                </div>
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                    <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
+                    <span id="deparTime">12:30</span>
+                    <img width="50px" src="./airplane.png" alt="">
+                    <span id="arrivTime">14:45</span>
+                </div>
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                    <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
+                    <span id="deparTime">3:30</span>
+                    <img width="50px" src="./airplane.png" alt="">
+                    <span id="arrivTime">5:45</span>
+                </div>
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                    <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
+                    <span id="deparTime">6:30</span>
+                    <img width="50px" src="./airplane.png" alt="">
+                    <span id="arrivTime">8:45</span>
+                </div>
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                    <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
+                    <span id="deparTime">6:30</span>
+                    <img width="50px" src="./airplane.png" alt="">
+                    <span id="arrivTime">8:45</span>
+                </div>
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                    <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
+                    <span id="deparTime">6:30</span>
+                    <img width="50px" src="./airplane.png" alt="">
+                    <span id="arrivTime">8:45</span>
+                </div>
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                    <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
+                    <span id="deparTime">6:30</span>
+                    <img width="50px" src="./airplane.png" alt="">
+                    <span id="arrivTime">8:45</span>
+                </div>
+                <div class="ResultatDeDecherche" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 15px 20px; text-align: center; border-radius: 8px; box-shadow: 0px 2px 40px -15px #70afd0; border: 1px solid #70afd0; color: #2e6c8e; font-weight: 700; font-size: 13pt;">
+                    <img height="50px" src="https://beebom.com/wp-content/uploads/2018/12/Lufthansa-Logo.jpg" alt="">
+                    <span id="deparTime">6:30</span>
+                    <img width="50px" src="./airplane.png" alt="">
+                    <span id="arrivTime">8:45</span>
+                </div>
+                
+               
+                
               </div>
               <div class="next">
                 <button onclick="back()" >Back</button>
@@ -178,15 +231,16 @@
             <div class='tab tab-4'>
               <h1>Les tickets</h1>
              
-                <div id="ticket"  style="height: 500px;display: flex; gap: 10px; justify-content: center; align-items: center;">
+                <div id="ticket"  style="display: flex;flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center;">
                    
               
-              </div>
+                </div>
               
         
               <div class="next">
                 <button onclick="back()">Back</button>
-                <button onclick="print()">print</button>
+                <button onclick="generatePDF()">Print PDF</button>
+
               </div>
             
             </div>
@@ -198,6 +252,9 @@
       </div>
     
 
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
       
       <script src="main.js"></script>
 </body>
